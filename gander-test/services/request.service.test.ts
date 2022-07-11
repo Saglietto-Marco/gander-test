@@ -1,4 +1,3 @@
-// import { mockRequestService } from '../mocks/mock'
 import RequestService from './request.service'
 import fetchMock from 'fetch-mock'
 
