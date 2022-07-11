@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import { RequestService } from '../services/request.service'
+import RequestService from '../services/request.service'
 
 const requestService = new RequestService()
 

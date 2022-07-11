@@ -3,7 +3,7 @@ interface AddNumbersBody {
     secondNumber: string
 }
 
-export class RequestService {
+export default class RequestService {
     async apiAddNumbers(data: AddNumbersBody) {
         try {
             let config = { method: 'POST', body: JSON.stringify(data) }
