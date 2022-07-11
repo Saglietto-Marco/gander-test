@@ -18,7 +18,7 @@ export default function handler(
             let result = addNumbersController.addTwoNumbers(req.body)
             res.status(200).json({ result: result })
         } catch (error) {
-            res.status(500).json({ message: error.message as any })
+            res.status(500).json({ message: error.message as string })
         }
     } else {
         // Handle any other HTTP method
