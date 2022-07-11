@@ -1,7 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import AddNumbersController from './controllers/AddNumbers.controller'
+
+const addNumbersController = new AddNumbersController()
 
 type Data = {
-    solution?: number
+    result?: number
     message?: string
 }
 
@@ -11,8 +14,12 @@ export default function handler(
 ) {
     if (req.method === 'POST') {
         // Process a POST request
-
-        res.status(200).json({ solution: 12 })
+        try {
+            let result = addNumbersController.addTwoNumbers(req.body)
+            res.status(200).json({ result: result })
+        } catch (error) {
+            res.status(500).json({ message: error.message })
+        }
     } else {
         // Handle any other HTTP method
         res.status(405).json({ message: 'invalid request method' })
