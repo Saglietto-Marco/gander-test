@@ -7,7 +7,7 @@ export default class AddNumbersController {
             let firstNumber = body['firstNumber']
             let secondNumber = body['secondNumber']
             if (/^-?\d+$/.test(firstNumber) && /^-?\d+$/.test(secondNumber)) {
-                return JSON.parse(firstNumber + secondNumber)
+                return JSON.parse(firstNumber) + JSON.parse(secondNumber)
             } else {
                 throw new Error('values must be a number')
             }
