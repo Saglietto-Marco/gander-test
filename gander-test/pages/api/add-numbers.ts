@@ -18,7 +18,11 @@ export default function handler(
             let result = addNumbersController.addTwoNumbers(req.body)
             res.status(200).json({ result: result })
         } catch (error) {
-            res.status(500).json({ message: 'internal server error' })
+            if (error.message === 'values must be a number') {
+                res.status(400).json({ message: error.message })
+            } else {
+                res.status(500).json({ message: 'internal server error' })
+            }
         }
     } else {
         // Handle any other HTTP method

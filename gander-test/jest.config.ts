@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from '@jest/types';
+
+const jestConfig: Config.InitialOptions = {
     collectCoverage: true,
     coverageReporters: [
         'cobertura',
@@ -10,11 +12,7 @@ module.exports = {
     transform: {
         '^.+\\.ts?$': 'ts-jest',
     },
+    moduleDirectories: ['node_modules', '<rootDir>/', 'pages', 'services'],
     transformIgnorePatterns: ['<rootDir>/node_modules/'],
-    jest: {
-        automock: false,
-        setupFiles: [
-            "./setupJest.js"
-        ]
-    }
 }
+export default jestConfig

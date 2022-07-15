@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 interface AddNumbersBody {
     firstNumber: string,
     secondNumber: string
@@ -6,11 +8,16 @@ interface AddNumbersBody {
 export default class RequestService {
     async apiAddNumbers(data: AddNumbersBody) {
         try {
-            let config = { method: 'POST', body: JSON.stringify(data) }
-            let response = await fetch(`/api/add-numbers`, config)
-            return response.json()
+            let response = await axios.post(`/api/add-numbers`, data)
+            console.log(response)
+            return response
         } catch (error) {
-            console.log(error)
+            if (axios.isAxiosError(error)) {
+                console.log(error)
+                return error.message
+            } else {
+                console.log(error)
+            }
         }
     }
 }

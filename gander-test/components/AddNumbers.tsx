@@ -12,7 +12,7 @@ const AddNumbersForm = () => {
         console.log('firstNumber ===', firstNumber)
         console.log('secondNumber ===', secondNumber)
         try {
-            let response = await requestService.apiAddNumbers({
+            let response: any = await requestService.apiAddNumbers({
                 firstNumber: firstNumber,
                 secondNumber: secondNumber
             })
